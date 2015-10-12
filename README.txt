@@ -11,7 +11,7 @@ Copyright 2015 Ahmad Alsahaf
 Research fellow, Politecnico di Milano 
 ahmadalsahaf@gmail.com 
 
-Acknowledgements to Andrea Castelletti, Politecnico di Milano
+Acknowledgements to Andrea Cominola, Politecnico di Milano
 
 This software is under the GNU General Public License. 
 Please read the text version of the license included with the package (gpl.txt).
