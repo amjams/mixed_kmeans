@@ -69,7 +69,7 @@ while(isequal(new_idx,curr_idx)==0 && count<max_iter)
     for i=1:k
         curr_cluster = data(find(curr_idx==i),:);
         curr_center = cluster_center(curr_cluster,feat_type);
-        name = strcat('center_',sprintf('%03d',i));
+        name = ['center_',sprintf('%03d',i)];
         all_centers.(name) = curr_center;
     end
     
@@ -78,7 +78,7 @@ while(isequal(new_idx,curr_idx)==0 && count<max_iter)
     for i=1:n
         k_distances = zeros(k,1);
         for j=1:k
-            name_now = strcat('center_',sprintf('%03d',j));
+            name_now = ['center_',sprintf('%03d',j)];
             center_now = all_centers.(name_now);
             k_distances(j) = dist_to_center(data(i,:),center_now,feat_type,significances,all_dist);
         end
@@ -86,7 +86,7 @@ while(isequal(new_idx,curr_idx)==0 && count<max_iter)
         [~,new_idx(i)] = min(k_distances);
     end
 % update the interation counter
-count = count+1
+count = count+1;
 idx_all(:,count) = new_idx;
 end
 

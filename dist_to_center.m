@@ -21,7 +21,7 @@ function [theta] = dist_to_center(x,c,input_type,sig,dist_all)
 %
 % Please refer to README.txt for bibliographical references on the algorithm.
 %
-% This file is part of the “mixed_kmeans” package
+% This file is part of the ???mixed_kmeans??? package
 %
 %     MATLAB_ExtraTrees is free software: you can redistribute it and/or modify
 %     it under the terms of the GNU General Public License as published by
@@ -53,7 +53,7 @@ sum_distance_numerical = 0;
 % find distance for each numerical attribute and add to sum
 for i=1:numel(num_idx)
     d = x(num_idx(i));
-    name = strcat('att_',sprintf('%03d',num_idx(i)));
+    name = ['att_',sprintf('%03d',num_idx(i))];
     num_center = c.numerical.(name);
     curr_significance = sig(num_idx(i));
     curr_dist = (curr_significance*(d-num_center))^2;
@@ -67,7 +67,7 @@ sum_distance_categorical = 0;
 % find distance for each categorical attribute and add to sum
 for i=1:numel(cat_idx)
     % access the current categorical attribute from structure
-    name = strcat('att_',sprintf('%03d',cat_idx(i)));
+    name = ['att_',sprintf('%03d',cat_idx(i))];
     curr_att = c.categorical.(name);
     
     

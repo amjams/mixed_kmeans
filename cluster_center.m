@@ -14,7 +14,7 @@ function [ center ] = cluster_center( cluster, input_type )
 %
 % Please refer to README.txt for bibliographical references on the algorithm.
 %
-% This file is part of the “mixed_kmeans” package
+% This file is part of the ???mixed_kmeans??? package
 %
 %     MATLAB_ExtraTrees is free software: you can redistribute it and/or modify
 %     it under the terms of the GNU General Public License as published by
@@ -48,18 +48,18 @@ num_idx = find(~input_type);
 % find center for each numerical attribute
 for i=1:numel(num_idx)
     curr_att = cluster(:,num_idx(i));
-    name = strcat('att_',sprintf('%03d',num_idx(i)));
+    name = ['att_',sprintf('%03d',num_idx(i))];
     center.numerical.(name) = mean(curr_att);
 end
 
 % find center for each categorical attribute
 for i=1:numel(cat_idx)
     curr_att = cluster(:,cat_idx(i));
-    name = strcat('att_',sprintf('%03d',cat_idx(i)));
+    name = ['att_',sprintf('%03d',cat_idx(i))];
     uniq_curr_att = unique_f(curr_att);
     
     for j=1:numel(uniq_curr_att)
-    name_value = strcat('value_',sprintf('%03d',j));    
+    name_value = ['value_',sprintf('%03d',j)];    
     curr_value = uniq_curr_att(j);
     count_value = numel(find(curr_att==curr_value));
     center.categorical.(name).(name_value).value = curr_value;
