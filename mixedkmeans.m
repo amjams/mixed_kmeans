@@ -1,4 +1,4 @@
-function [ idx, idx_all ] = mixedkmeans( data, k, feat_type, max_iter )
+function [ idx, idx_all, significances ] = mixedkmeans( data, k, feat_type, max_iter )
 
 % kmeans for mixed features (See README.txt)
 % inputs:
@@ -7,8 +7,9 @@ function [ idx, idx_all ] = mixedkmeans( data, k, feat_type, max_iter )
 %     feat_type:  binary vector indicating type of feature (1 for categorical, 0 for numerical)
 % 
 % outputs:
-%     idx:        outcome of the clustering (cluster membership index) 
-%     idx_all:    outcome after each iteration
+%     idx:            outcome of the clustering (cluster membership index) 
+%     idx_all:        outcome after each iteration
+%     significances:  significances of the features to the clustering (can be used to rank the features
 
 
 
