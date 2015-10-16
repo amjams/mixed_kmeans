@@ -9,7 +9,7 @@ function [ idx, idx_all, significances ] = mixedkmeans( data, k, feat_type, max_
 % outputs:
 %     idx:            outcome of the clustering (cluster membership index) 
 %     idx_all:        outcome after each iteration
-%     significances:  significances of the features to the clustering (can be used to rank the features
+%     significances:  significances of the features to the clustering (can be used to rank the features)
 
 
 
