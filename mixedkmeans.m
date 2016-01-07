@@ -1,4 +1,4 @@
-function [ idx, idx_all, significances ] = mixedkmeans( data, k, feat_type, max_iter )
+function [ idx, idx_all, significances, all_centers, all_dist ] = mixedkmeans( data, k, feat_type, max_iter )
 
 % kmeans for mixed features (See README.txt)
 % inputs:
@@ -10,6 +10,7 @@ function [ idx, idx_all, significances ] = mixedkmeans( data, k, feat_type, max_
 %     idx:            outcome of the clustering (cluster membership index) 
 %     idx_all:        outcome after each iteration
 %     significances:  significances of the features to the clustering (can be used to rank the features)
+%     all_dist:       distances between categorical data points
 
 
 
@@ -86,6 +87,16 @@ while(isequal(new_idx,curr_idx)==0 && count<max_iter)
         % assign the point to its closest center
         [~,new_idx(i)] = min(k_distances);
     end
+    
+% dealing with an empty clusters (occupy with random point)
+if numel(unique_f(new_idx))<k
+    empty_cluster = setdiff(1:k,unique_f(new_idx));
+    rand_points = datasample(1:n,numel(empty_cluster),'Replace',false);
+    for j=1:numel(empty_cluster)
+        new_idx(rand_points(j)) = empty_cluster(j);
+    end
+end
+    
 % update the interation counter
 count = count+1;
 idx_all(:,count) = new_idx;

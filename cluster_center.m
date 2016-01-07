@@ -39,7 +39,7 @@ function [ center ] = cluster_center( cluster, input_type )
 center = struct;
 
 % cluster dimensions, and numerical and categorical feature indices
-[n,m] = size(cluster);
+[n,~] = size(cluster);
 center.cluster_size = n;
 cat_idx = find(input_type);
 num_idx = find(~input_type);

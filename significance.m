@@ -17,7 +17,7 @@ function [ sig ] = significance(D,idx)
 %
 % Please refer to README.txt for bibliographical references on the algorithm.
 %
-% This file is part of the “mixed_kmeans” package
+% This file is part of the ???mixed_kmeans??? package
 %
 %     MATLAB_ExtraTrees is free software: you can redistribute it and/or modify
 %     it under the terms of the GNU General Public License as published by
@@ -35,6 +35,12 @@ function [ sig ] = significance(D,idx)
 
 % number of attributes
 m = size(D,2);
+
+% when only one variable is present, significane is one
+if m == 1
+    sig = 1;
+    return
+end
 
 % define the attribute, its unique values, and all unique pairs
 a = D(:,idx);

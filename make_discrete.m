@@ -16,7 +16,7 @@ function [discrete_output] = make_discrete(x)
 %
 % Please refer to README.txt for bibliographical references on the algorithm.
 %
-% This file is part of the “mixed_kmeans” package
+% This file is part of the ???mixed_kmeans??? package
 %
 %     MATLAB_ExtraTrees is free software: you can redistribute it and/or modify
 %     it under the terms of the GNU General Public License as published by

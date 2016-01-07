@@ -14,7 +14,7 @@ function [ d_all ] = algo_distance(D)
 %
 % Please refer to README.txt for bibliographical references on the algorithm.
 %
-% This file is part of the “mixed_kmeans” package
+% This file is part of the ???mixed_kmeans??? package
 %
 %     MATLAB_ExtraTrees is free software: you can redistribute it and/or modify
 %     it under the terms of the GNU General Public License as published by
@@ -32,10 +32,20 @@ function [ d_all ] = algo_distance(D)
 
 
 % data dimenionsality
-[n,m] = size(D);
+[~,m] = size(D);
 
 %intialize distance vector; which contains all distances between all pairs
 d_all = [];
+
+
+%if only one feature is clustered (distances are binary)
+if m==1
+    all_pairs = nchoosek(unique_f(D),2);
+    d_all(:,[1 4]) = ones(size(all_pairs,1),2);
+    d_all(:,2:3) = all_pairs;
+    return
+end
+    
 
 for i = 1:m
     % define ai, the current attribute

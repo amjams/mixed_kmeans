@@ -88,7 +88,7 @@ for i=1:numel(cat_idx)
             &dist_all(:,3)==sorted_values(2));
         
         % set distance to zero if value is equal to center, compute dist
-        % othewise (i.e. only update when different values
+        % othewise (i.e. only update when different values)
         
         if (sorted_values(1) ~= sorted_values(2))
             sum_categorical_current = sum_categorical_current ...
