@@ -21,8 +21,8 @@ clc
 
 % import and define dataset 
 x = csvread('Heart.csv',1,0);
-data = x(2:end,:);      %(last column, the output, is left out of the clustering)
-output = x(2:end,end);  % the output (2 classes)
+data = x(2:end,1:end-1);      %(last column, the output, is left out of the clustering)
+output = x(2:end,end);        % the output (2 classes)
 
 % the first row of the csv file contains the input type
 % (1: categorical, 0:numerical)
